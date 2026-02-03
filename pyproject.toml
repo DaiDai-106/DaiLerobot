@@ -7,4 +7,30 @@ requires-python = ">=3.11"
 dependencies = [
     "feetech-servo-sdk==1.0.0",
     "numpy==2.2.6",
+    "pyserial==3.5",
+    "tqdm>=4.67.2",
+]
+
+
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "F",      # Pyflakes
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "UP",     # pyupgrade
+]
+ignore = ["E501"]  # 行宽由 formatter 处理
+
+[tool.ruff.format]
+quote-style = "double"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.14",
 ]
