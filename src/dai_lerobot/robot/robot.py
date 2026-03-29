@@ -1,13 +1,22 @@
-from dataclasses import dataclass
 import logging
 import time
-import draccus
-from pathlib import Path
+from dataclasses import dataclass
 from functools import cached_property
+from pathlib import Path
 
-from dai_lerobot.robot.core import RobotObservation, RobotAction, ensure_safe_goal_position
-from dai_lerobot.driver import FeetechMotorsBus, Motor, MotorNormMode, MotorCalibration, OperatingMode
-from dai_lerobot.driver import check_if_already_connected, check_if_not_connected
+import draccus
+
+from dai_lerobot.driver import (
+    FeetechMotorsBus,
+    Motor,
+    MotorCalibration,
+    MotorNormMode,
+    OperatingMode,
+    check_if_already_connected,
+    check_if_not_connected,
+)
+from dai_lerobot.processors import RobotAction, RobotObservation
+from dai_lerobot.robot.core import ensure_safe_goal_position
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +44,7 @@ class RobotConfig:
     use_degrees: bool = True
 
 
-class Robot():
+class Robot:
     config_class = RobotConfig
 
     def __init__(self, config: RobotConfig):

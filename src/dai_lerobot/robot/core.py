@@ -1,14 +1,5 @@
-from typing import TypeAlias
-from dataclasses import dataclass
-from typing import Any, TypeAlias, TypedDict
 import logging
 from pprint import pformat
-
-
-# PolicyAction: TypeAlias = torch.Tensor
-RobotAction: TypeAlias = dict[str, Any]
-# EnvAction: TypeAlias = np.ndarray
-RobotObservation: TypeAlias = dict[str, Any]
 
 logger = logging.getLogger(__name__)
 
